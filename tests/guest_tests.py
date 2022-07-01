@@ -23,7 +23,7 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_fav_song(self):
         self.assertEqual("Hello", self.guest1.fav_song)
 
-    def test_favourite_song(self):
+    def test_favourite_song_result_woo_hoo(self):
         songbook = self.karaoke.add_to_song_book(self.song1)
         add = self.room1.add_to_playlist(self.karaoke.song_book, self.song1)
         result = self.room1.check_favourite_song_in_playlist(self.guest1)
