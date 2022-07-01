@@ -26,3 +26,8 @@ class KaraokeBar:
             self.song_book.remove(song)
         else:
             return "Song is not in songbook"
+
+    def charge_entry_fee(self, guest):
+        self.till += 5
+        guest.wallet -= 5
+    

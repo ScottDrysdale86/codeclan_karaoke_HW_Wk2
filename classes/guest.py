@@ -3,5 +3,3 @@ class Guest:
         self.name = _name
         self.wallet = _wallet
         self.fav_song = _fav_song
-
-        

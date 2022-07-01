@@ -55,3 +55,8 @@ class TestKaraokeBar(unittest.TestCase):
         self.karaoke.add_guest_to_room(self.room1, self.guest3)
         result = self.karaoke.add_guest_to_room(self.room1, self.guest4)
         self.assertEqual("Room Full", result)
+
+    def test_charge_entry_fee(self):
+        self.karaoke.charge_entry_fee(self.guest1)
+        self.assertEqual(205, self.karaoke.till)
+        self.assertEqual(45, self.guest1.wallet)
