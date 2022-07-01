@@ -28,6 +28,8 @@ class KaraokeBar:
             return "Song is not in songbook"
 
     def charge_entry_fee(self, guest):
-        self.till += 5
-        guest.wallet -= 5
-    
+        if guest.wallet >= 5:
+            self.till += 5
+            guest.wallet -= 5
+        else:
+            return "You do not have enough money to enter"

@@ -11,7 +11,7 @@ class TestKaraokeBar(unittest.TestCase):
         self.room1 = Room("Room1", 3)
         self.guest1 = Guest("Scott", 50, "Hello")
         self.guest2 = Guest("Becca", 20, "Help")
-        self.guest3 = Guest("Jacob", 10, "Baby Shark")
+        self.guest3 = Guest("Jacob", 0, "Baby Shark")
         self.guest4 = Guest("Donna", 100, "Sunshine on Leith")
         self.song1 = Song("Hello", "Adele")
         self.song2 = Song("Help", "The Beatles")
@@ -60,3 +60,9 @@ class TestKaraokeBar(unittest.TestCase):
         self.karaoke.charge_entry_fee(self.guest1)
         self.assertEqual(205, self.karaoke.till)
         self.assertEqual(45, self.guest1.wallet)
+
+    def test_charge_entry_fee_insufficient_funds(self):
+        result = self.karaoke.charge_entry_fee(self.guest3)
+        self.assertEqual(200, self.karaoke.till)
+        self.assertEqual(0, self.guest3.wallet)
+        self.assertEqual("You do not have enough money to enter", result)
